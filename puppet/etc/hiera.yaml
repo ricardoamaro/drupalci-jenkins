@@ -1,0 +1,10 @@
+---
+:backends:
+  - yaml
+
+:hierarchy:
+  - "nodes/%{::jenkins_role}"
+  - common
+
+:yaml:
+  :datadir: ./puppet/etc/hieradb
