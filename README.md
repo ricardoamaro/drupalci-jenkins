@@ -9,7 +9,7 @@ Provides Master / Slave infrastructure for Drupal automated testing.
 
 ### Vagrant - Local development.
 
-The local environment can be spun up via the 
+The local environment can be spun up via the following command:
 
 ```
 vagrant up
