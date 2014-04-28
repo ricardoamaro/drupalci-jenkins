@@ -6,3 +6,4 @@ mod 'puppetlabs/ntp', :git => 'git://github.com/puppetlabs/puppetlabs-ntp.git', 
 mod 'saz/timezone',   :git => 'git://github.com/saz/puppet-timezone.git',       :ref => 'v3.0.1'
 mod 'saz/locales',    :git => 'git://github.com/saz/puppet-locales.git',        :ref => 'v2.1.0'
 mod 'mjhas/postfix',  :git => 'git://github.com/mjhas/postfix.git',             :ref => '0.0.5'
+mod 'garethr/docker', :git => 'git://github.com/garethr/garethr-docker.git',    :ref => 'v0.11.1'

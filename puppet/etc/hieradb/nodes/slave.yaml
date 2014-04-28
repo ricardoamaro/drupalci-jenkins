@@ -1,7 +1,10 @@
 # Classes and configuration for slave hosts.
 classes:
+  - docker
   - jenkins::slave
 
+docker::version: '0.10.0'
+docker::dns: '8.8.8.8'
 jenkins::slave::masterurl: "http://%{::jenkins_master}:8080"
 jenkins::slave::ui_user: 'adminuser'
 jenkins::slave::ui_pass: 'adminpass'

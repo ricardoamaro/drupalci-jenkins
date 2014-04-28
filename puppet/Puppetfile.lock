@@ -5,6 +5,17 @@ FORGE
     puppetlabs/java (1.1.0)
       puppetlabs/stdlib (>= 0.1.6)
     puppetlabs/stdlib (4.1.0)
+    stahnma/epel (0.0.6)
+
+GIT
+  remote: git://github.com/garethr/garethr-docker.git
+  ref: v0.11.1
+  sha: 0ab9b277f40abeb93eeb1131f9a01c09cd54364e
+  specs:
+    garethr/docker (0.11.1)
+      puppetlabs/apt (>= 1.1.0)
+      puppetlabs/stdlib (>= 4.1.0)
+      stahnma/epel (>= 0.0.6)
 
 GIT
   remote: git://github.com/jenkinsci/puppet-jenkins.git
@@ -56,6 +67,7 @@ GIT
       puppetlabs/stdlib (>= 2.3.0)
 
 DEPENDENCIES
+  garethr/docker (>= 0)
   jenkins (>= 0)
   mjhas/postfix (>= 0)
   puppetlabs/apt (>= 0)
