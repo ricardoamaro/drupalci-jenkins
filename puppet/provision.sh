@@ -3,6 +3,8 @@
 # Script: provision.sh
 # Author: Nick Schuch
 
+PUPPET='/vagrant/puppet/puppet'
+
 # Helper function to install packages.
 aptInstall() {
   COUNT=`dpkg --get-selections $1 | wc -l`
@@ -12,15 +14,22 @@ aptInstall() {
   fi
 }
 
+# Helper function to install gems packages.
+gemInstall() {
+  COUNT=`gem list | grep $1 | wc -l`
+  if [ "$COUNT" -eq "0" ]; then
+    gem install $1
+  fi
+}
+
 # Install the required packages.
 aptInstall curl
 aptInstall wget
 aptInstall git
 aptInstall rubygems
 aptInstall vim
+gemInstall puppet
+gemInstall librarian-puppet
 
-# Ensure we have the latest puppet.
-PUPPET_COUNT=`gem list | grep puppet | wc -l`
-if [ "$PUPPET_COUNT" -eq "0" ]; then
-  gem install puppet
-fi
+# Run librarian-puppet to pull down contrib modules.
+cd $PUPPET && librarian-puppet install
