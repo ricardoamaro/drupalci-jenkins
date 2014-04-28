@@ -6,9 +6,36 @@
 
 domain = 'local'
 nodes = [
-  { :hostname => 'master', :jenkins_role => "master", :ip => '192.168.1.52', :box => 'precise32', :ram => 1024 },
-  { :hostname => 'slave1', :jenkins_role => "slave",  :ip => '192.168.1.53', :box => 'precise32', :ram => 1024 },
-  { :hostname => 'slave2', :jenkins_role => "slave",  :ip => '192.168.1.54', :box => 'precise32', :ram => 1024 }
+  {
+    :hostname => 'master',
+    :ip => '192.168.1.52',
+    :box => 'precise32',
+    :ram => 1024,
+    :facts => {
+      "vagrant" => "1",
+      "jenkins_role" => "master"
+    }
+  },{
+    :hostname => 'slave1',
+    :ip => '192.168.1.53',
+    :box => 'precise32',
+    :ram => 1024,
+    :facts => {
+      "vagrant" => "1",
+      "jenkins_role" => "slave",
+      "jenkins_master" => "192.168.1.52"
+    }
+  },{
+    :hostname => 'slave2',
+    :ip => '192.168.1.54',
+    :box => 'precise32',
+    :ram => 1024,
+    :facts => {
+      "vagrant" => "1",
+      "jenkins_role" => "slave",
+      "jenkins_master" => "192.168.1.52"
+    }
+  }
 ]
 
 Vagrant.configure("2") do |config|
@@ -20,23 +47,12 @@ Vagrant.configure("2") do |config|
       node_config.vm.network :private_network, :ip => node[:ip]
 
       memory = node[:ram] ? node[:ram] : 256;
-      config.vm.provider :virtualbox do |vb|
+      node_config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--name", node[:hostname]]
         vb.customize ["modifyvm", :id, "--memory", memory.to_s]
       end
 
-      # We want to cater for both Unix and Windows.
-      if RUBY_PLATFORM =~ /linux|darwin/
-        config.vm.synced_folder(
-          ".",
-          "/vagrant",
-          :nfs => true,
-          :map_uid => 0,
-          :map_gid => 0,
-         )
-      else
-        config.vm.synced_folder ".", "/vagrant"
-      end
+      config.vm.synced_folder ".", "/vagrant"
 
       config.vm.provision "shell", path: "puppet/provision.sh"
       node_config.vm.provision :puppet do |puppet|
@@ -45,10 +61,7 @@ Vagrant.configure("2") do |config|
         puppet.module_path = 'puppet/modules'
         puppet.hiera_config_path = "puppet/etc/hiera.yaml"
         puppet.working_directory = "/vagrant/puppet"
-        puppet.facter = {
-          "vagrant" => "1",
-          "jenkins_role" => node[:jenkins_role]
-        }
+        puppet.facter = node[:facts]
       end
     end
   end
