@@ -22,7 +22,7 @@ GIT
   ref: v1.1.0
   sha: bd615225f7d054d8dad8d9173457c9c5c188c331
   specs:
-    jenkins (1.1.0)
+    jenkinsci/jenkins (1.1.0)
       darin/zypprepo (>= 1.0.1)
       puppetlabs/apt (>= 0.0.3)
       puppetlabs/java (>= 1.0.1)
@@ -68,10 +68,9 @@ GIT
 
 DEPENDENCIES
   garethr/docker (>= 0)
-  jenkins (>= 0)
+  jenkinsci/jenkins (>= 0)
   mjhas/postfix (>= 0)
   puppetlabs/apt (>= 0)
   puppetlabs/ntp (>= 0)
   saz/locales (>= 0)
   saz/timezone (>= 0)
-
