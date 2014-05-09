@@ -2,3 +2,6 @@
 classes:
   - jenkins
   - jenkins::master
+  - puppet::agent
+
+puppet::agent::puppet_server: "%{::puppet_master}"

@@ -2,9 +2,11 @@
 classes:
   - docker
   - jenkins::slave
+  - puppet::agent
 
 docker::version: '0.10.0'
 docker::dns: '8.8.8.8'
 jenkins::slave::masterurl: "http://%{::jenkins_master}:8080"
 jenkins::slave::ui_user: 'adminuser'
 jenkins::slave::ui_pass: 'adminpass'
+puppet::agent::puppet_server: "%{::puppet_master}"

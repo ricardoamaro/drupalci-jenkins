@@ -4,36 +4,52 @@
 # Jenkins based platform.
 #
 
-domain = 'local'
+domain = "local"
 nodes = [
   {
-    :hostname => 'master',
-    :ip => '192.168.1.52',
-    :box => 'precise32',
-    :ram => 1024,
+    :hostname => "puppet-master",
+    :ip => "192.168.1.51",
+    :box => "precise64",
+    :box_url => "http://files.vagrantup.com/precise64.box",
+    :ram => 512,
     :facts => {
       "vagrant" => "1",
-      "jenkins_role" => "master"
+      "role" => "puppet_master"
     }
   },{
-    :hostname => 'slave1',
-    :ip => '192.168.1.53',
-    :box => 'precise32',
-    :ram => 1024,
+    :hostname => "jenkins-master",
+    :ip => "192.168.1.52",
+    :box => "precise64",
+    :box_url => "http://files.vagrantup.com/precise64.box",
+    :ram => 512,
     :facts => {
       "vagrant" => "1",
-      "jenkins_role" => "slave",
-      "jenkins_master" => "192.168.1.52"
+      "role" => "jenkins_master",
+      "puppet_master" => "192.168.1.51"
     }
   },{
-    :hostname => 'slave2',
-    :ip => '192.168.1.54',
-    :box => 'precise32',
-    :ram => 1024,
+    :hostname => "jenkins-slave1",
+    :ip => "192.168.1.53",
+    :box => "precise64",
+    :box_url => "http://files.vagrantup.com/precise64.box",
+    :ram => 512,
     :facts => {
       "vagrant" => "1",
-      "jenkins_role" => "slave",
-      "jenkins_master" => "192.168.1.52"
+      "role" => "slave",
+      "jenkins_master" => "192.168.1.52",
+      "puppet_master" => "192.168.1.51"
+    }
+  },{
+    :hostname => "jenkins-slave2",
+    :ip => "192.168.1.54",
+    :box => "precise64",
+    :box_url => "http://files.vagrantup.com/precise64.box",
+    :ram => 512,
+    :facts => {
+      "vagrant" => "1",
+      "role" => "slave",
+      "jenkins_master" => "192.168.1.52",
+      "puppet_master" => "192.168.1.51"
     }
   }
 ]
@@ -41,8 +57,8 @@ nodes = [
 Vagrant.configure("2") do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |node_config|
-      node_config.vm.box = 'precise64'
-      node_config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
+      node_config.vm.box = node[:box]
+      node_config.vm.box_url = node[:box_url]
       node_config.vm.host_name = node[:hostname] + '.local'
       node_config.vm.network :private_network, :ip => node[:ip]
 
