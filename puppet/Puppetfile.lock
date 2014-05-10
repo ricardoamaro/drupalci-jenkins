@@ -44,19 +44,19 @@ GIT
       puppetlabs/stdlib (>= 2.2.1)
 
 GIT
+  remote: git://github.com/puppetlabs/puppetlabs-concat.git
+  ref: 1.0.2
+  sha: 98f4dc50873d0ad8b1918a2c61db4bc38c3a8dba
+  specs:
+    puppetlabs/concat (1.0.2)
+
+GIT
   remote: git://github.com/puppetlabs/puppetlabs-ntp.git
   ref: 3.0.2
   sha: 3e4a537acad35c646b5b39c21053b1be31e6daa3
   specs:
     puppetlabs/ntp (3.0.2)
       puppetlabs/stdlib (>= 0.1.6)
-
-GIT
-  remote: git://github.com/puppetlabs/puppetlabs-puppet.git
-  ref: master
-  sha: f6f1d7b6f783855a7f5871d27e0a1ee39855c6e6
-  specs:
-    puppet/puppet (0.0.1)
 
 GIT
   remote: git://github.com/saz/puppet-locales.git
@@ -73,12 +73,18 @@ GIT
     saz/timezone (3.0.1)
       puppetlabs/stdlib (>= 2.3.0)
 
+PATH
+  remote: ./custom/puppet
+  specs:
+    drupal/puppet (0.0.1)
+
 DEPENDENCIES
+  drupal/puppet (>= 0)
   garethr/docker (>= 0)
   jenkinsci/jenkins (>= 0)
   mjhas/postfix (>= 0)
-  puppet/puppet (>= 0)
   puppetlabs/apt (>= 0)
+  puppetlabs/concat (>= 0)
   puppetlabs/ntp (>= 0)
   saz/locales (>= 0)
   saz/timezone (>= 0)

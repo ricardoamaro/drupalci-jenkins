@@ -9,9 +9,9 @@ nodes = [
   {
     :hostname => "puppet-master",
     :ip => "192.168.1.51",
-    :box => "precise64",
-    :box_url => "http://files.vagrantup.com/precise64.box",
-    :ram => 512,
+    :box => "raring64",
+    :box_url => "https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box",
+    :ram => 1024,
     :facts => {
       "vagrant" => "1",
       "role" => "puppet_master"
@@ -19,9 +19,9 @@ nodes = [
   },{
     :hostname => "jenkins-master",
     :ip => "192.168.1.52",
-    :box => "precise64",
-    :box_url => "http://files.vagrantup.com/precise64.box",
-    :ram => 512,
+    :box => "raring64",
+    :box_url => "https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box",
+    :ram => 1024,
     :facts => {
       "vagrant" => "1",
       "role" => "jenkins_master",
@@ -30,24 +30,24 @@ nodes = [
   },{
     :hostname => "jenkins-slave1",
     :ip => "192.168.1.53",
-    :box => "precise64",
-    :box_url => "http://files.vagrantup.com/precise64.box",
-    :ram => 512,
+    :box => "raring64",
+    :box_url => "https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box",
+    :ram => 1024,
     :facts => {
       "vagrant" => "1",
-      "role" => "slave",
+      "role" => "jenkins_slave",
       "jenkins_master" => "192.168.1.52",
       "puppet_master" => "192.168.1.51"
     }
   },{
     :hostname => "jenkins-slave2",
     :ip => "192.168.1.54",
-    :box => "precise64",
-    :box_url => "http://files.vagrantup.com/precise64.box",
-    :ram => 512,
+    :box => "raring64",
+    :box_url => "https://dl.dropboxusercontent.com/u/547671/thinkstack-raring64.box",
+    :ram => 1024,
     :facts => {
       "vagrant" => "1",
-      "role" => "slave",
+      "role" => "jenkins_slave",
       "jenkins_master" => "192.168.1.52",
       "puppet_master" => "192.168.1.51"
     }
