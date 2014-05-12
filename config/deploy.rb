@@ -19,7 +19,7 @@ namespace :puppet do
   # Prepares the puppet repository via librarian puppet.
   task :prepare do
     run "git clone --quiet #{repository} #{tmp_dir}"
-    run "cd #{tmp_dir} && bundle install --path vendor/bundle"
+    run "cd #{tmp_dir} && bundle install --path vendor/bundle > /dev/null"
     run "cd #{tmp_dir}/puppet && bundle exec librarian-puppet install"
   end
 
