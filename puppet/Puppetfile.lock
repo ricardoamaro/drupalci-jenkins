@@ -28,7 +28,7 @@ GIT
 GIT
   remote: git://github.com/nickschuch/garethr-docker.git
   ref: master
-  sha: 46b40b02f925d11acf66d45ae121544870af01e1
+  sha: 41a22bb44e3dcc28903fc8d56d7b1cd86e54ab65
   specs:
     nickschuch/docker (0.13.0)
       puppetlabs/apt (>= 1.1.0)
