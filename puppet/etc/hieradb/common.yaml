@@ -1,7 +1,7 @@
 # The classes we our common hosts will use.
-classes:
-  - apt
-  - locales
-  - ntp
-  - postfix
-  - timezone
+#classes:
+#  - apt
+#  - locales
+#  - ntp
+#  - postfix
+#  - timezone
