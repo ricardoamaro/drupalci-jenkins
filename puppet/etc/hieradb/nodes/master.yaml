@@ -4,5 +4,5 @@ classes:
   - jenkins::master
 
 jenkins::config_hash:
-  HTTP_PORT:
+  JENKINS_PORT:
     value: "80"
