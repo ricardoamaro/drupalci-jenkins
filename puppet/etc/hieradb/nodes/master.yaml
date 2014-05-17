@@ -2,3 +2,7 @@
 classes:
   - jenkins
   - jenkins::master
+
+jenkins::config_hash:
+  JENKINS_PORT:
+    value: "8080"
