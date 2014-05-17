@@ -1,2 +1,2 @@
 # Development cluster.
-role :app, "140.211.169.76", "140.211.169.77"
+role :app, "dispatcher.dev.drupalci.org", "testbot-slave.drupal.org"
