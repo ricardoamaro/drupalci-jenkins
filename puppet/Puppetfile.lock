@@ -9,10 +9,10 @@ FORGE
 
 GIT
   remote: git://github.com/garethr/garethr-docker.git
-  ref: v0.11.1
-  sha: 0ab9b277f40abeb93eeb1131f9a01c09cd54364e
+  ref: master
+  sha: 2d8b67f0ac78a93cd7306838a76745300e2805a1
   specs:
-    garethr/docker (0.11.1)
+    garethr/docker (0.13.0)
       puppetlabs/apt (>= 1.1.0)
       puppetlabs/stdlib (>= 4.1.0)
       stahnma/epel (>= 0.0.6)
@@ -22,7 +22,7 @@ GIT
   ref: v1.1.0
   sha: bd615225f7d054d8dad8d9173457c9c5c188c331
   specs:
-    jenkins (1.1.0)
+    rtyler/jenkins (1.1.0)
       darin/zypprepo (>= 1.0.1)
       puppetlabs/apt (>= 0.0.3)
       puppetlabs/java (>= 1.0.1)
@@ -68,10 +68,9 @@ GIT
 
 DEPENDENCIES
   garethr/docker (>= 0)
-  jenkins (>= 0)
+  rtyler/jenkins (>= 0)
   mjhas/postfix (>= 0)
   puppetlabs/apt (>= 0)
   puppetlabs/ntp (>= 0)
   saz/locales (>= 0)
   saz/timezone (>= 0)
-
