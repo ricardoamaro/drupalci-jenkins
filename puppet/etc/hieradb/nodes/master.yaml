@@ -28,3 +28,5 @@ jenkins::plugin_hash:
     version: "1.6.1"
   "build-token-root":
     version: "1.1"
+  "ws-cleanup":
+    version: "0.20"
