@@ -6,3 +6,25 @@ classes:
 jenkins::config_hash:
   JENKINS_PORT:
     value: "8080"
+
+jenkins::plugin_hash:
+  'git':
+    version: "1.1.1"
+  'multiple-scms':
+    version: "0.3"
+  'token-macro':
+    version: "1.10"
+  'parameterized-trigger':
+    version: "2.24"
+  'credentials':
+    version: "1.10"
+  'scm-api':
+    version: "0.2"
+  "git-client":
+    version: "1.9.0"
+  "promoted-builds":
+    version: "2.17"
+  "ssh-credentials":
+    version: "1.6.1"
+  "build-token-root":
+    version: "1.1"
